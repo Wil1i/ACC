@@ -4,17 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ورود ادمین - اپل سرویس</title>
+    <title>ACC - اپل سرویس</title>
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/fonts.css">
 </head>
 <body>
     <% for(const key in flash){ %>               
-        <span role="alert" class="flash">
+        <span role="alert" class="flash" dir="rtl">
           <%= flash[key] %>
         </span>
     <% } %>
     
+
+<div class="container" dir="rtl">
+	
+	<div class="table">
+		<div class="table-header">
+			<div class="header__item"><a id="name" class="filter__link" href="/shops">تامین کننده</a></div>
+			<div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">شماره سفارش</a></div>
+			<div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">تاریخ</a></div>
+			<div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">مبلغ <small style="font-weight: 200;">تومان</small></a></div>
+			<div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">توضیحات <small style="font-weight: 200;">اختیاری</small></a></div>
+		</div>
+		<div class="table-content">	
+			<% allOrders.forEach(order => { %>
+				<div class="table-row">		
+					<div class="table-data"><%=order.name%></div>
+					<div class="table-data"><%=order.orderId%></div>
+					<div class="table-data"><%=order.time%></div>
+					<div class="table-data"><%=order.price%></div>
+					<div class="table-data"><%=order.description%></div>
+				</div>
+			<% }) %>
+
+			<form id="new-form" class="table-row" method="post" action="/?action=new">		
+				<div class="table-data">
+					<input required placeholder="تامین کننده" list="brow" name="name" autocomplete="off">
+					<datalist id="brow">
+						<% allShops.forEach((shop) => { %>
+							<option value="<%=shop.name%>">
+						<% }) %>
+					</datalist>
+				</div>
+				<div class="table-data">
+					<input autocomplete="off" required type="number" name="orderId" placeholder="شماره سفارش">
+				</div>
+				<div class="table-data">
+					<input autocomplete="off" required data-jdp name="time" id="" placeholder="تاریخ">
+				</div>
+				<div class="table-data">
+					<input autocomplete="off" required name="price" type="number" placeholder="مبلغ (تومان)">
+				</div>
+				<div class="table-data">
+					<input autocomplete="off" required name="description" type="text" placeholder="توضیحات (اختیاری)">
+				</div>
+				<button type="submit" style="display : none;" id="submitbtn"></button>
+			</form>
+		</div>	
+	</div>
+</div>
+<link type="text/css" rel="stylesheet" href="/css/jdp.min.css" />
+<script type="text/javascript" src="/js/jdp.min.js"></script>
+
+<script>
+	jalaliDatepicker.startWatch();
+	var newForm = document.getElementById("new-form")
+	var submitBtn = document.getElementById("submitbtn")
+
+	newForm.addEventListener("keydown", (key) => {
+		if(key.key == "Enter"){
+			submitBtn.click()
+		}
+	})
+
+</script>
 </body>
 </html>
