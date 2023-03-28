@@ -22,13 +22,8 @@ app.use(passport.session());
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 
-require("./helpers/passport")
-
 const routes = require("./routes");
 app.use("/", routes);
-
-const adminRoutes = require("./routes/admin")
-app.use("/admin", adminRoutes)
 
 app.listen(config.app.port, () => {
   console.log(`Server is running on ${config.app.port}`);
