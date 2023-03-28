@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACC - اپل سرویس</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/newShop.css">
+</head>
+<body>
+    <% for(const key in flash){ %>               
+        <span role="alert" class="flash" dir="rtl">
+          <%= flash[key] %>
+        </span>
+    <% } %>
+    <a href="/" id="home">Home</a>
+    <div class="container">
+        <form class="box" method="post" action="/shops?action=add">
+            <h1>اضافه کردن تامین کننده</h1>
+
+            <input autocomplete="off" dir="rtl" name="name" type="text" placeholder="نام تامین کننده">
+            <input autocomplete="off" type="text" placeholder="شماره تماس" dir="rtl" name="number">
+
+            <div style="width: 40%;display: flex;justify-content: center; align-items: center; flex-direction: column">
+                <button style="margin-bottom: 20px;" type="submit">ثبت</button>
+                <div style="width: 100%">
+                    <p style="float: left;font-weight: 100;color: gray;">تامین کننده</p>
+                    <p style="float: right;font-weight: 100;color:gray">شماره تماس</p>
+                </div>
+                <div style="width: 100%;">
+                    <% allShops.forEach(shop => { %>
+                        <div style="width: 100%">
+                            <p style="float: left"><%=shop.name%></p>
+                            <p style="float: right;"><%=shop.number%></p>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
