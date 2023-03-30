@@ -5,7 +5,8 @@ const get = async (req, res) => {
 
     res.render("newShop", {
         flash : req.flash(),
-        allShops
+        allShops,
+        q : false
     })
 }
 
