@@ -26,6 +26,10 @@ const Orders = db.define("orders", {
 
     description : {
         type : DataTypes.TEXT
+    },
+
+    mode : {
+        type : DataTypes.TEXT
     }
 }, {
     timestamps : false
