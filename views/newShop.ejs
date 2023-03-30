@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="/css/newShop.css">
 </head>
 <body>
+    <%-include("templates/menu.ejs")%>
     <% for(const key in flash){ %>               
         <span role="alert" class="flash" dir="rtl">
           <%= flash[key] %>
         </span>
     <% } %>
-    <a href="/" id="home">Home</a>
     <div class="container">
         <form class="box" method="post" action="/shops?action=add">
             <h1>اضافه کردن تامین کننده</h1>

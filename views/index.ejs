@@ -52,7 +52,11 @@
 					<input autocomplete="off" required name="price" type="number" placeholder="مبلغ (تومان)">
 				</div>
 				<div class="table-data">
-					<input autocomplete="off" name="description" type="text" placeholder="توضیحات (اختیاری)">
+					<input list="descList" autocomplete="off" name="description" type="text" placeholder="توضیحات (اختیاری)">
+					<datalist id="descList">
+						<option value="هزینه ارسال">
+						<option value="پرداخت در محل">
+					</datalist>
 				</div>
 				<button type="submit" style="display : none;" id="submitbtn"></button>
 			</form>
