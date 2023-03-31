@@ -31,7 +31,7 @@
 		<div class="table-content">
 			<form id="new-form" class="table-row" method="post" action="/?action=new&list=<%=q%>">		
 				<div class="table-data">
-					<p><%=(allOrders && allOrders[0]) ? allOrders[allOrders.length - 1].id + 1 : "-"%></p>
+					<p><%=(lastId) ? lastId + 1 : "-"%></p>
 				</div>
 				
 				<div class="table-data <%= (q == "sabtPardakht") ? "op0" : "" %>">
