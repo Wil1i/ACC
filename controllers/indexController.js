@@ -2,13 +2,18 @@ const Order = require("../models/Order")
 const Shop = require("../models/Shop")
 
 const get = async (req, res) => {
-    const allOrders = await Order.findAll({where : {mode : req.query.list || "sabtFaktor"}})
+    const allOrders = await Order.findAll({where : {mode : req.query.list || "sabtFaktor"}, order: [['time', 'DESC']]})
+    let lastId;
+    await Order.findAll({where : {mode : req.query.list || sabtFaktor}}).then((result) => {
+        lastId = result[result.length - 1].id
+    })
     const allShops = await Shop.findAll()
     console.log(req.query.list || "menu")
     res.render("index", {
         flash : req.flash(),
         allOrders,
         allShops,
+        lastId,
         q: req.query.list || "menu"
     })
 }
