@@ -5,7 +5,7 @@ const get = async (req, res) => {
     const allOrders = await Order.findAll({where : {mode : req.query.list || "sabtFaktor"}, order: [['time', 'DESC']]})
     let lastId;
     await Order.findAll({where : {mode : req.query.list || "sabtFaktor"}}).then((result) => {
-        lastId = result[result.length - 1].id
+        if (result) lastId = result[result.length - 1].id
     })
     const allShops = await Shop.findAll()
     console.log(req.query.list || "menu")
