@@ -103,3 +103,14 @@ input{
   align-items: center;
   flex-direction: column;
 }
+
+#submitForm{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgb(12, 12, 92);
+  background-color: rgba(12, 56, 92, 0.2);
+}

@@ -35,7 +35,7 @@
 				</div>
 				
 				<div class="table-data <%= (q == "sabtPardakht") ? "op0" : "" %>">
-					<input autocomplete="off" <%= (q != "sabtPardakht") ? "required" : "" %> type="number" name="orderId" placeholder="شماره سفارش">
+					<input autocomplete="off" <%= (q != "sabtPardakht") ? "required" : "" %> type="number" name="orderId" placeholder="شماره سفارش" id="orderId">
 				</div>
 				<div class="table-data">
 					<input required placeholder="تامین کننده" list="brow" name="name" autocomplete="off">
@@ -49,7 +49,7 @@
 					<input autocomplete="off" required data-jdp name="time" id="" placeholder="تاریخ">
 				</div>
 				<div class="table-data">
-					<input autocomplete="off" required name="price" type="number" placeholder="مبلغ (تومان)">
+					<input autocomplete="off" required name="price" id="price" type="number" placeholder="مبلغ (تومان)">
 				</div>
 				<div class="table-data">
 					<input list="descList" autocomplete="off" name="description" type="text" placeholder="توضیحات (اختیاری)">
@@ -83,5 +83,6 @@
 <script src="/js/axios.min.js"></script>
 
 <script src="/js/indexScript.js" defer></script>
+<button id="submitForm">ثبت</button>
 </body>
 </html>
