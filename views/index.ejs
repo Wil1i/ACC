@@ -62,7 +62,7 @@
 			</form>
 
 			<% if(allOrders && allOrders[0]){ %>
-			<% allOrders.forEach(order => { %>
+				<% let order = allOrders[allOrders.length - 1] %>
 				<div class="table-row">		
 					<div class="table-data delHandler"><%=order.id%></div>
 					<% if(q != "sabtPardakht"){ %>
@@ -73,7 +73,6 @@
 					<div class="table-data"><%=order.price%></div>
 					<div class="table-data"><%=order.description%></div>
 				</div>
-			<% }) %>
 			<%}%>
 		</div>	
 	</div>

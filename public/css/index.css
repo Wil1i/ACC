@@ -23,6 +23,9 @@ h6 {
   max-width: 1000px;
   margin: 0 auto;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .table {
