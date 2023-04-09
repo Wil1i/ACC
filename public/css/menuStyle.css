@@ -40,12 +40,22 @@
     align-items: center;
     flex-direction: column;
     padding: 30px;
+    border: 3px solid rgb(59, 119, 250);
+}
+
+.line{
+    width: 80%;
+    height: 1px;
+    background-color: rgb(214, 214, 214);
+    margin: 5px 0;
 }
 
 .menuBox > a{
     padding: 30px;
     transition: background-color .2s ease-in-out;
     border-radius : 10px;
+    min-width: 90%;
+    text-align: center;
 }
 
 .menuBox > a:hover{

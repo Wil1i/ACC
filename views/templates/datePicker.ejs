@@ -4,12 +4,11 @@
         <h1 style="text-align: center;">بازه زمانی</h1>
         <input required id="dateInput" data-jdp placeholder="از تاریخ" style="text-align: center;">
         <input required id="dateInput2" data-jdp placeholder="تا تاریخ" style="text-align: center;">
-        <input required placeholder="تامین کننده" list="tamins" id="tamin" autocomplete="off">
-        <datalist id="tamins">
+        <select id="tamins" style="width: 30%; border-radius: 7px;text-align: center;">
             <% allShops.forEach((shop) => { %>
-                <option value="<%=shop.name%>">
+                <option value="<%=shop.name%>"><%=shop.name%></option>
             <% }) %>
-        </datalist>
+        </select>
         <button id="dateSubmit">ثبت</button>
     </div>
 </div>
