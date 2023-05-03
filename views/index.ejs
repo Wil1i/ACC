@@ -70,7 +70,7 @@
 					<% } %>
 					<div class="table-data"><%=order.name%></div>
 					<div class="table-data"><%=order.time%></div>
-					<div class="table-data"><%=order.price%></div>
+					<div class="table-data"><%=order.price || `<input class="submitPrice" id="${order.id}" placeholder="مبلغ">`%></div>
 					<div class="table-data"><%=order.description%></div>
 				</div>
 			<%}%>
