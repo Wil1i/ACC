@@ -6,15 +6,14 @@ const post = async (req, res) => {
   const time = await axios.get("https://prayer.aviny.com/api/prayertimes/1");
   const date = time.split(" - ")[0];
 
-  Order.create({
+  await Order.create({
     name: supplier,
     orderId,
     time: date,
     description,
     mode: "sabtFaktor",
-  }).then(() => {
-    res.json({ ok: true });
   });
+  res.json({ ok: true });
 };
 
 module.exports = {

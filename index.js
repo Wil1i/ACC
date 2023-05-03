@@ -20,6 +20,9 @@ app.use(morgan("combined"));
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 
+const APIs = require("./routes/api");
+app.use("/api", APIs);
+
 const routes = require("./routes");
 app.use("/", routes);
 

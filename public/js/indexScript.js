@@ -8,49 +8,35 @@ var submitForm = document.getElementById("submitForm");
 var submitPriceInputs = document.querySelectorAll(".submitPrice");
 
 for (let i = 0; i < delHandler.length; i++) {
-  delHandler[i].addEventListener("dblclick", () => {
+  delHandler[i].addEventListener("dblclick", async () => {
     if (confirm(`سند شماره ${delHandler[i].innerHTML} حذف شود؟`)) {
-      axios.post("/del", { id: delHandler[i].innerHTML }).then(() => {
-        location.reload();
-      });
+      await axios.post("/del", { id: delHandler[i].innerHTML });
+      location.reload();
     }
   });
 }
 
 newForm.addEventListener("keydown", (key) => {
-  if (key.key == "Enter") {
-    if (
-      confirm(
-        `شماره سفارش ${orderId.value} به مبلغ ${price.value} تومان ثبت شود؟`
-      )
-    ) {
-      submitBtn.click();
-    } else {
-      key.preventDefault();
-    }
-  }
+  if (key.key != "Enter") return;
+  confirm(`شماره سفارش ${orderId.value} به مبلغ ${price.value} تومان ثبت شود؟`)
+    ? submitBtn.click()
+    : key.preventDefault();
 });
 
 submitForm.addEventListener("click", () => {
-  if (
-    confirm(
-      `شماره سفارش ${orderId.value} به مبلغ ${price.value} تومان ثبت شود؟`
-    )
-  ) {
-    submitBtn.click();
-  }
+  confirm(
+    `شماره سفارش ${orderId.value} به مبلغ ${price.value} تومان ثبت شود؟`
+  ) && submitBtn.click();
 });
 
 for (let i = 0; i < submitPriceInputs.length; i++) {
   submitPriceInputs[i].addEventListener("dblclick", async () => {
-    try {
-      if (confirm("آيا از ثبت مبلغ مطمئن هستید‌؟")) {
-        await axios.post("/api/orders/update", {
-          id: submitPriceInputs[i].id,
-          price: submitPriceInputs[i].value,
-        });
-      }
-    } catch (error) {}
+    if (confirm("آيا از ثبت مبلغ مطمئن هستید‌؟")) {
+      await axios.post("/api/orders/update", {
+        id: submitPriceInputs[i].id,
+        price: submitPriceInputs[i].value,
+      });
+    }
     location.reload();
   });
 }
