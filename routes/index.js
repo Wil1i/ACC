@@ -19,7 +19,7 @@ Router.post("/del", delApiController.post);
 const submitAPIController = require("../controllers/submitAPIController");
 Router.post("/api/orders/create", submitAPIController.post);
 
-const submitPriceController = require("../controllers/submitPriceController");
-Router.post("/submitprice", submitPriceController.post);
+const updatePriceAPIController = require("../controllers/updatePriceAPIController");
+Router.post("/api/orders/update", updatePriceAPIController.post);
 
 module.exports = Router;

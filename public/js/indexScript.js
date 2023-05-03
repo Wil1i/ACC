@@ -45,7 +45,7 @@ for (let i = 0; i < submitPriceInputs.length; i++) {
   submitPriceInputs[i].addEventListener("dblclick", async () => {
     try {
       if (confirm("آيا از ثبت مبلغ مطمئن هستید‌؟")) {
-        await axios.post("/submitprice", {
+        await axios.post("/api/orders/update", {
           id: submitPriceInputs[i].id,
           price: submitPriceInputs[i].value,
         });
